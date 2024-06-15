@@ -13,7 +13,7 @@ const Main = styled.div`
         display: block;
         justify-content: center;
         align-self: center;
-        min-height: 1060px;
+        min-height: 1080px;
         background: linear-gradient(to bottom right, #d170ff, #ffaa83); 
     }
 `

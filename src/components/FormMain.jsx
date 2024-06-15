@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 
@@ -63,12 +63,19 @@ const Inputs = styled.div`
         padding-top: 10px;
         padding-bottom: 10px;
         color: white;
+        transition: all 0.2s ease-in-out;
     }
 
     .input-box :hover {
-        transition: color 0.2s;
-        transition: 0.2s;
         box-shadow: #FFCF88 1px 1px 30px;
+    }
+
+    .input-box :focus {
+        border-radius: 24px;
+    }
+
+    .input-box ::placeholder {
+        color: rgba(255, 255, 255, 0.205);
     }
 
     .wrapper button {
@@ -83,13 +90,14 @@ const Inputs = styled.div`
         color: #00FF57;
         margin-left: 70px;
         margin-top: 30px;
+        transition: all 0.2s ease-in-out;
     }
 
     .button-accept :hover {
         color: white;
         background-color: #00FF57;
-        transition: color 0.3s ease;
-        transition: 0.3s ease;
+        transition: all 0.3s ease-out;
+        transition: all 0.3s ease-out;
         box-shadow: #00FF57 1px 1px 40px;
     }
 
@@ -205,37 +213,37 @@ const FormMain = () => {
   return (
     <div>
       <Inputs>
-      <div className='main'>
-        <div class="wrapper">
-            <form id='form_hx' action="">
-                <h1 class="animate__animated animate__backInRight">Имя</h1>
-                <div class="input-box">
-                    <input class="animate__animated animate__backInLeft" type="text" id="one" placeholder="Пиздон" 
-                    required></input>
-                </div>
-                <h1 class="animate__animated animate__backInLeft">Фамилия</h1>
-                <div class="input-box">
-                    <input class="animate__animated animate__backInRight" type="text" id="two" placeholder="Пиздоныч" 
-                    required></input>
-                </div>
-                <h1 class="animate__animated animate__backInRight">Электронная почта</h1>
-                <div class="input-box">
-                    <input class="animate__animated animate__backInLeft" type="text" id="email" placeholder="pizdon666@mail.git" 
-                    required></input>
-                </div>
-                <div class="avatar"> 
-                    <label class="switch" for="checkbox">
-                    <input type="checkbox" id="checkbox"/>
-                    <div class="slider round"><h2 class="animate__animated animate__fadeIn" >Добавить аватар</h2></div> 
-                    </label>
-                </div>
-                <div class="button-accept">
-                    <button type="submit">OK</button>
-                </div>
-            </form>
+        <div className='main'>
+            <div class="wrapper">
+                <form id='form_hx' action="">
+                    <h1 class="animate__animated animate__backInRight">Имя</h1>
+                    <div class="input-box">
+                        <input class="animate__animated animate__backInLeft" type="text" id="one" placeholder="Пиздон" 
+                        required></input>
+                    </div>
+                    <h1 class="animate__animated animate__backInLeft">Фамилия</h1>
+                    <div class="input-box">
+                        <input class="animate__animated animate__backInRight" type="text" id="two" placeholder="Пиздоныч" 
+                        required></input>
+                    </div>
+                    <h1 class="animate__animated animate__backInRight">Электронная почта</h1>
+                    <div class="input-box">
+                        <input class="animate__animated animate__backInLeft" type="text" id="email" placeholder="pizdon666@mail.git" 
+                        required></input>
+                    </div>
+                    <div class="avatar"> 
+                        <label class="switch" for="checkbox">
+                        <input type="checkbox" id="checkbox"/>
+                        <div class="slider round"><h2 class="animate__animated animate__fadeIn" >Добавить аватар</h2></div> 
+                        </label>
+                    </div>
+                    <div class="button-accept">
+                        <button type="submit">OK</button>
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
-      </Inputs>
+    </Inputs>
         <Redirect>
             <div class="footer">
                 <a href="/list">Вернуться к списку</a>
