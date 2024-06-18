@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 
-
 const Inputs = styled.div`
     @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
     
@@ -209,48 +208,113 @@ const Redirect = styled.div `
     }
 `
 
-const FormMain = () => {
+class FormMain extends Component {
+    state ={
+        name:'',
+        surname:'',
+        email:'',
+        showData: {
+            name: '',
+            surname: '',
+            email: '',
+        }
+    }
+
+    handleNameChange = ({ target: { value } }) => {
+        this.setState ({
+            name: value,
+        })
+    }
+
+    handleSurnameChange = ({ target: { value } }) => {
+        this.setState ({
+            surname: value,
+        })
+    }
+
+    handleEmailtChange = ({ target: { value } }) => {
+        this.setState ({
+            email: value,
+        })
+    }
+
+    handleShow = (e) => {
+        e.preventDefault();
+        const { name, surname, email } = this.state;
+        this.setState({
+            name: '',
+            surname: '',
+            email: '',
+            showData: {
+                info: name,
+                info_sur: surname,
+            }
+        })
+    }
+
+
+render() {
+  const { name, surname, email, showData } = this.state
+  const { info, info_sur } = showData;
   return (
     <div>
       <Inputs>
         <div className='main'>
-            <div class="wrapper">
+            <div className="wrapper">
                 <form id='form_hx' action="">
-                    <h1 class="animate__animated animate__backInRight">Имя</h1>
-                    <div class="input-box">
-                        <input class="animate__animated animate__backInLeft" type="text" id="one" placeholder="Пиздон" 
+                    <h1 className="animate__animated animate__backInRight">Имя</h1>
+                    <div className="input-box">
+                        <input 
+                        className="animate__animated animate__backInLeft" 
+                        type="text"
+                        value={name}
+                        onChange={this.handleNameChange} 
+                        id="one" placeholder="Пиздон" 
                         required></input>
                     </div>
-                    <h1 class="animate__animated animate__backInLeft">Фамилия</h1>
-                    <div class="input-box">
-                        <input class="animate__animated animate__backInRight" type="text" id="two" placeholder="Пиздоныч" 
+                    <h1 className="animate__animated animate__backInLeft">Фамилия</h1>
+                    <div className="input-box">
+                        <input 
+                        className="animate__animated animate__backInRight" 
+                        type="text"
+                        value={surname}
+                        onChange={this.handleSurnameChange}  
+                        id="two" placeholder="Пиздоныч" 
                         required></input>
                     </div>
-                    <h1 class="animate__animated animate__backInRight">Электронная почта</h1>
-                    <div class="input-box">
-                        <input class="animate__animated animate__backInLeft" type="text" id="email" placeholder="pizdon666@mail.git" 
+                    <h1 className="animate__animated animate__backInRight">Электронная почта</h1>
+                    <div className="input-box">
+                        <input 
+                        className="animate__animated animate__backInLeft" 
+                        type="text"
+                        value={email}
+                        onChange={this.handleEmailtChange} 
+                        id="email" placeholder="pizdon666@mail.git" 
                         required></input>
                     </div>
-                    <div class="avatar"> 
-                        <label class="switch" for="checkbox">
+                    <div className="avatar"> 
+                        <label className="switch" for="checkbox">
                         <input type="checkbox" id="checkbox"/>
-                        <div class="slider round"><h2 class="animate__animated animate__fadeIn" >Добавить аватар</h2></div> 
+                        <div className="slider round"><h2 className="animate__animated animate__fadeIn" >Добавить аватар</h2></div> 
                         </label>
                     </div>
-                    <div class="button-accept">
-                        <button type="submit">OK</button>
+                    <div className="button-accept">
+                        <button onClick={this.handleShow} type="submit">OK</button>
                     </div>
                 </form>
             </div>
+            <h1>{info}</h1>
+            <h2>{info_sur}</h2>
         </div>
     </Inputs>
         <Redirect>
-            <div class="footer">
+            <div className="footer">
                 <a href="/list">Вернуться к списку</a>
             </div>
         </Redirect>
     </div>
   )
+ }
 }
 
 export default FormMain

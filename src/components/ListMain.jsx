@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import FormMain from '../components/FormMain'
 
 
 const Info = styled.div `
@@ -79,17 +80,17 @@ const ListMain = () => {
 <div>
         <Info>
     <div className='main'>
-        <div class="upper-text">
-                <h1 class="animate__animated animate__backInDown">Список пользователей</h1>
+        <div className="upper-text">
+                <h1 className="animate__animated animate__backInDown">Список пользователей</h1>
         </div> 
-            <div class="wrapper">
-                <ul class="user_info">
+            <div className="wrapper">
+                <ul className="user_info">
                  <li></li>
                  <li></li>
                  <li></li>       
                 </ul>
             </div>
-            <div class="footer">
+            <div className="footer">
                 <a href="/">Вернуться к регистрации</a>
             </div>
         </div>
