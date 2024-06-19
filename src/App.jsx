@@ -1,6 +1,5 @@
 import React from 'react'
 import FormPage from './pages/FormPage'
-import ListPage from './pages/ListPage'
 
 import {
   createBrowserRouter,
@@ -11,10 +10,7 @@ import {
       path: "/",
       element: <FormPage/>,
     },
-    {
-      path: "list",
-      element: <ListPage />
-    }
+
     
   ])
   const App = () => {
